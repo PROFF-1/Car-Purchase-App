@@ -1,6 +1,17 @@
 {
   "extends": "expo/tsconfig.base",
   "compilerOptions": {
-    "strict": true
-  }
+    "strict": true,
+    "jsx": "react-jsx",
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true
+  },
+  "include": [
+    "**/*.ts",
+    "**/*.tsx",
+    ".expo/types/**/*.ts",
+    "expo-env.d.ts",
+    "Src/assets/Cars/CarsSvg/Lamboghini.jsx", 
+    "Src/assets/Cars/BrandsSvg/Toyota.jsx"
+, "Src/styles/theme.ts"  ]
 }
