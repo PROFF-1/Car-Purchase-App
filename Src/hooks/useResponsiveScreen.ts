@@ -1,27 +1,11 @@
 import { Dimensions, PixelRatio, Platform, ScaledSize } from 'react-native';
 import { useEffect, useState } from 'react';
+import { ResponsiveContext, Orientation } from '../types/responsive';
 
 const BASE_DIMENSIONS = {
     width: 375,
     height: 812
 };
-
-type Orientation = 'portrait' | 'landscape';
-
-interface ResponsiveContext {
-    screenWidth: number;
-    screenHeight: number;
-    orientation: Orientation;
-    isSmallDevice: boolean;
-    isMediumDevice: boolean;
-    isLargeDevice: boolean;
-    isTablet: boolean;
-    scale: (size: number) => number;
-    scaleHeight: (size: number) => number;
-    scaleFontSize: (size: number) => number;
-    hp: (percentage: number) => number;
-    wp: (percentage: number) => number;
-}
 
 /**
  * Hook to get and subscribe to screen dimensions

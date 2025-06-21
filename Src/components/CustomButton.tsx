@@ -2,12 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, TouchableOpacity, ViewStyle } from 'react-native';
 import { useTheme } from '../styles/theme';
 import { useResponsiveScreen } from '../hooks/useResponsiveScreen';
-
-interface CustomButtonProps {
-  onPress: () => void;
-  title?: string;
-  style?: ViewStyle;
-}
+import { CustomButtonProps } from '../types/components';
 
 export default function CustomButton({
   onPress,

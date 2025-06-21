@@ -3,24 +3,7 @@ import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
 import { Feather } from '@expo/vector-icons';
 import { useTheme } from '../styles/theme';
 import { useResponsiveScreen } from '../hooks/useResponsiveScreen';
-
-interface Car {
-  name: string;
-  price: string;
-  image?: string;
-  Svg?: React.ComponentType<any>;
-  colors: string[];
-  favorite: boolean;
-  description: string;
-}
-
-interface CarCardProps {
-  car: Car;
-  onPress?: () => void;
-  onFavorite?: () => void;
-  cardStyle?: any;
-  svgSize?: { width: number; height: number };
-}
+import { Car, CarCardProps } from '../types/car';
 
 export default function CarCard({ car, onPress, onFavorite, cardStyle, svgSize }: CarCardProps) {
   const { colors } = useTheme();

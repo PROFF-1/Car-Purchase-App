@@ -3,13 +3,7 @@ import { View, TextInput, StyleSheet } from 'react-native';
 import { Feather } from '@expo/vector-icons';
 import { useTheme } from '../styles/theme';
 import { useResponsiveScreen } from '../hooks/useResponsiveScreen';
-
-interface SearchBarProps {
-  value: string;
-  onChangeText: (text: string) => void;
-  placeholder?: string;
-  style?: any;
-}
+import { SearchBarProps } from '../types/components';
 
 export default function SearchBar({ value, onChangeText, placeholder = "Search", style }: SearchBarProps) {
   const { colors } = useTheme();

@@ -3,11 +3,7 @@ import { View, TextInput, StyleSheet, TouchableOpacity, Text, ViewStyle } from '
 import CountryPicker, { Country, CountryCode } from 'react-native-country-picker-modal';
 import { useTheme } from '../styles/theme';
 import { useResponsiveScreen } from '../hooks/useResponsiveScreen';
-
-interface CountryCodePickerProps {
-  onPhoneChange?: (value: string) => void;
-  style?: ViewStyle;
-}
+import { CountryCodePickerProps } from '../types/components';
 
 export default function CountryCodePicker({ onPhoneChange, style }: CountryCodePickerProps) {
   const { colors } = useTheme();

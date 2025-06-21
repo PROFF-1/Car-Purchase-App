@@ -2,18 +2,8 @@ import React from 'react';
 import { View, Image, Text, StyleSheet, ScrollView } from 'react-native';
 import { useTheme } from '../styles/theme';
 import { useResponsiveScreen } from '../hooks/useResponsiveScreen';
-
-interface BannerCarouselProps {
-  style?: any; // Add style prop here
-}
-
-const banners = [
-  {
-    image: 'https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?auto=format&fit=crop&w=800&q=80',
-    title: 'Extreme bump test',
-    subtitle: 'First test! 100km/h extreme bump test',
-  },
-];
+import { BannerCarouselProps } from '../types/components';
+import { banners } from '../mockup';
 
 export default function BannerCarousel({ style }: BannerCarouselProps) {
   const { colors } = useTheme();

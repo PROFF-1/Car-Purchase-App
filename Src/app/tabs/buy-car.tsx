@@ -8,100 +8,8 @@ import CitySelector from '../../components/CitySelector';
 import CarCard from '../../components/CarCard';
 import { Feather } from '@expo/vector-icons';
 import type { Icon } from '@expo/vector-icons/build/createIconSet';
-
-// Import specific filter icons from assets
-import SalesImage from '../../assets/sales.png';
-import HotImage from '../../assets/hot.png';
-import FeaturedImage from '../../assets/featured.png';
-import DiscountImage from '../../assets/discount.png';
-import Lamborghini from '../../assets/Cars/CarsSvg/Lamborghini';
-import Mustang from '../../assets/Cars/CarsSvg/Mustang';
-import Hurracan from '../../assets/Cars/CarsSvg/Hurracan';
-import MorrisGarages from '../../assets/Cars/CarsSvg/MorrisGarages';
-import Ferrari from '../../assets/Cars/CarsSvg/Ferrari';
-import AmgCoupe from '../../assets/Cars/CarsSvg/AmgCoupe';
-
-// Define a Car interface for type safety (can be moved to a global types file later)
-interface Car {
-  name: string;
-  price: string;
-  image?: string;
-  Svg?: React.ComponentType<any>;
-  colors: string[];
-  favorite: boolean;
-  description: string;
-}
-
-// Sample data for car listings (will be replaced by backend integration)
-const CAR_DATA: Car[] = [
-  {
-    name: 'Audi TT RS',
-    price: '$67,600',
-    image: 'https://images.unsplash.com/photo-1549399542-7ba77334759b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
-    Svg: Lamborghini,
-    colors: ['#fff', '#000', '#FFD600'],
-    favorite: false,
-    description: 'Audi/2.0-liter four-cylinder',
-  },
-  {
-    name: 'Mustang',
-    price: '$26,670',
-    image: 'https://images.unsplash.com/photo-1542362543-b26a6d6d4a5c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
-    Svg: Mustang,
-    colors: ['#FFA500', '#808080', '#008000'],
-    favorite: false,
-    description: 'Ford/The 2.3L EcoBoost',
-  },
-  {
-    name: 'Huracán',
-    price: '$67,600',
-    image: 'https://images.unsplash.com/photo-1583121274640-4200d7d2f9d5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
-    Svg: Hurracan,
-    colors: ['#FFD600', '#000', '#fff'],
-    favorite: false,
-    description: 'Lamborghini/5.2-liter V-10',
-  },
-  {
-    name: 'Morris Garages',
-    price: '$14,900',
-    image: 'https://images.unsplash.com/photo-1621430076-0f2c8d5b1b1f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
-    Svg: MorrisGarages,
-    colors: ['#008000', '#fff', '#FF0000'],
-    favorite: false,
-    description: 'MG/1.5-liter four-cylinder',
-  },
-  {
-    name: 'Ferrari 812',
-    price: '$98,800',
-    image: 'https://images.unsplash.com/photo-1594955745162-42173160a0a5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
-    Svg: Ferrari,
-    colors: ['#FF0000', '#000', '#FFD600'],
-    favorite: false,
-    description: 'Ferrari/F12berlinetta\'s V12',
-  },
-  {
-    name: 'AMG GT Coupe',
-    price: '$59,800',
-    image: 'https://images.unsplash.com/photo-1599434861621-c4d3b0e1b1d7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
-    Svg: AmgCoupe,
-    colors: ['#0000FF', '#fff', '#808080'],
-    favorite: false,
-    description: 'Benz/4.0L AMG V8 biturbo',
-  },
-];
-
-interface FilterOption {
-  label: string;
-  imageSource?: any;
-  iconName?: keyof typeof Feather.glyphMap;
-}
-
-const FILTER_OPTIONS: FilterOption[] = [
-  { label: 'Sales', imageSource: SalesImage },
-  { label: 'Hot', imageSource: HotImage },
-  { label: 'Featured', imageSource: FeaturedImage },
-  { label: 'Discount', imageSource: DiscountImage },
-];
+import { Car, FilterOption } from '../../types';
+import { carData, filterOptions } from '../../mockup';
 
 export default function BuyCar() {
   const { colors } = useTheme();
@@ -250,7 +158,7 @@ export default function BuyCar() {
       </View>
 
       <View style={styles.filterContainer}>
-        {FILTER_OPTIONS.map((item) => (
+        {filterOptions.map((item) => (
           <TouchableOpacity
             key={item.label}
             style={[
@@ -283,7 +191,7 @@ export default function BuyCar() {
 
       <FlatList
         key={`car-list-${orientation}-${numColumns}`}
-        data={CAR_DATA}
+        data={carData}
         numColumns={numColumns}
         renderItem={renderCarCard}
         keyExtractor={(item) => item.name}

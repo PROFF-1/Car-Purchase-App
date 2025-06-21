@@ -3,26 +3,7 @@ import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
 import { useResponsiveScreen } from '../hooks/useResponsiveScreen';
 import { useTheme } from '../styles/theme';
 import { Feather } from '@expo/vector-icons';
-
-interface CommunityPost {
-  id: string;
-  user: {
-    name: string;
-    ownerType: string;
-    avatar: string;
-  };
-  title: string;
-  image: string;
-  timeAgo: string;
-  views: number;
-  comments: number;
-  likes: number;
-}
-
-interface CommunityPostCardProps {
-  post: CommunityPost;
-  onPress: () => void;
-}
+import { CommunityPost, CommunityPostCardProps } from '../types/community';
 
 const CommunityPostCard: React.FC<CommunityPostCardProps> = ({ post, onPress }) => {
   const { wp, hp, scale, orientation, isTablet } = useResponsiveScreen();

@@ -3,11 +3,7 @@ import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import { Feather } from '@expo/vector-icons';
 import { useTheme } from '../styles/theme';
 import { useResponsiveScreen } from '../hooks/useResponsiveScreen';
-
-interface CitySelectorProps {
-  city: string;
-  onPress: () => void;
-}
+import { CitySelectorProps } from '../types/components';
 
 export default function CitySelector({ city, onPress }: CitySelectorProps) {
   const { colors } = useTheme();

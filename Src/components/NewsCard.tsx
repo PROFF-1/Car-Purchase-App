@@ -2,29 +2,26 @@ import React from 'react';
 import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
 import { useTheme } from '../styles/theme';
 import { useResponsiveScreen } from '../hooks/useResponsiveScreen';
-
-interface News {
-  title: string;
-  author: string;
-  date: string;
-  image: string;
-  category: string;
-}
-
-interface NewsCardProps {
-  news: News;
-  onPress?: () => void;
-  cardStyle?: any;
-}
+import { News, NewsCardProps } from '../types/news';
+import { useRouter } from 'expo-router';
 
 export default function NewsCard({ news, onPress, cardStyle }: NewsCardProps) {
   const { colors } = useTheme();
   const { scaleFontSize } = useResponsiveScreen();
+  const router = useRouter();
+
+  const handlePress = () => {
+    if (onPress) {
+      onPress();
+    } else {
+      router.push({ pathname: '/NewsDetails', params: { newsId: news.title } });
+    }
+  };
 
   return (
     <TouchableOpacity 
       style={[styles.card, cardStyle, { backgroundColor: colors.cardOnWhitePage }]} 
-      onPress={onPress}
+      onPress={handlePress}
       activeOpacity={0.7}
     >
       <Image 
@@ -34,7 +31,7 @@ export default function NewsCard({ news, onPress, cardStyle }: NewsCardProps) {
       />
       <View style={styles.textContainer}>
         <View style={styles.categoryContainer}>
-          <Text style={[styles.category, { color: colors.primary }]}>
+          <Text style={[styles.category, { color: colors.constant }]}>
             {news.category}
           </Text>
         </View>

@@ -3,12 +3,7 @@ import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import { useTheme } from '../styles/theme';
 import { useResponsiveScreen } from '../hooks/useResponsiveScreen';
-
-interface SectionHeaderProps {
-  title: string;
-  onMore?: () => void;
-  containerStyle?: any;
-}
+import { SectionHeaderProps } from '../types/components';
 
 export default function SectionHeader({ title, onMore, containerStyle }: SectionHeaderProps) {
   const { colors } = useTheme();

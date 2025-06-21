@@ -9,7 +9,6 @@ import {
   ScrollView,
 } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
-import Close from '../assets/Svgs/Close';
 import Check from '../assets/Svgs/Check';
 import Facebook from '../assets/Svgs/Facebook';
 import Google from '../assets/Svgs/Google';

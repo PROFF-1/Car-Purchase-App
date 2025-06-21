@@ -141,7 +141,7 @@ export default function UserDetails() {
               }
             />
             <View style={styles.buttonWrapper}>
-              <CustomButton onPress={() => router.push({ pathname: '/MyLocation'})} />
+              <CustomButton onPress={() => router.push('./tabs')} />
             </View>
           </View>
         </ScrollView>

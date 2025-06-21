@@ -2,12 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
 import { useResponsiveScreen } from '../hooks/useResponsiveScreen';
 import { useTheme } from '../styles/theme';
-
-interface UserStoryCardProps {
-  name: string;
-  avatarUrl: string;
-  onPress: () => void;
-}
+import { UserStoryCardProps } from '../types/components';
 
 const UserStoryCard: React.FC<UserStoryCardProps> = ({ name, avatarUrl, onPress }) => {
   const { wp, hp, scale, isTablet } = useResponsiveScreen();

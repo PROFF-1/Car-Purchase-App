@@ -3,16 +3,7 @@ import { View, TextInput, TouchableOpacity, StyleSheet, KeyboardTypeOptions } fr
 import { Feather } from '@expo/vector-icons';
 import { useTheme } from '../styles/theme';
 import { useResponsiveScreen } from '../hooks/useResponsiveScreen';
-
-interface InputFieldProps {
-  value: string;
-  onChangeText: (text: string) => void;
-  placeholder?: string;
-  onClear?: () => void;
-  keyboardType?: KeyboardTypeOptions;
-  secureTextEntry?: boolean;
-  rightIcon?: React.ReactNode;
-}
+import { InputFieldProps } from '../types/components';
 
 export default function InputField({ value, onChangeText, placeholder, onClear, keyboardType, secureTextEntry, rightIcon, ...props }: InputFieldProps) {
   const { colors } = useTheme();
