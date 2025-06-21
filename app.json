@@ -3,12 +3,13 @@
     "name": "Car-Purchase-App",
     "slug": "Car-Purchase-App",
     "version": "1.0.0",
-    "orientation": "portrait",
-    "icon": "./assets/icon.png",
-    "userInterfaceStyle": "light",
+    "orientation": "default",
+    "icon": "./Src/assets/icon.png",
+    "userInterfaceStyle": "automatic",
+    "scheme": "carpurchaseapp",
     "newArchEnabled": true,
     "splash": {
-      "image": "./assets/splash-icon.png",
+      "image": "./Src/assets/splash-icon.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -17,13 +18,24 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
+        "foregroundImage": "./Src/assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
       "edgeToEdgeEnabled": true
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      [
+      "expo-router",
+      {
+          "root": "Src/app"
+      }
+    ]
+  ],
+  "experiments": {
+      "typedRoutes": true
     }
   }
 }
